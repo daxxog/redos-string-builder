@@ -1,21 +1,23 @@
 {
-    "name"        : "redos-string-builder",
-    "description" : "Builds specially crafted strings for ReDoS attacks.",
-    "license"     : "Apache-2.0",
-    "homepage"    : "https://github.com/daxxog/redos-string-builder",
-    "main"        : "redos-string-builder.min.js",
-    "version"     : "0.0.1",
+    "name": "redos-string-builder",
+    "description": "Builds specially crafted strings for ReDoS attacks.",
+    "license": "Apache-2.0",
+    "homepage": "https://github.com/daxxog/redos-string-builder",
+    "main": "redos-string-builder.min.js",
+    "version": "0.0.1",
     "engines": {
-        "node" : ">=4.2.4"
+        "node": ">=4.2.4"
     },
-    "maintainers": [{
-        "name"  : "David Volm",
-        "email" : "david@volminator.com",
-        "web"   : "http://daxxog.com/"
-    }],
+    "maintainers": [
+        {
+            "name": "David Volm",
+            "email": "david@volminator.com",
+            "web": "http://daxxog.com/"
+        }
+    ],
     "repository": {
-        "type" : "git",
-        "url"  : "https://github.com/daxxog/redos-string-builder.git"
+        "type": "git",
+        "url": "https://github.com/daxxog/redos-string-builder.git"
     },
     "devDependencies": {
         "bitfactory": "*",
@@ -35,6 +37,6 @@
         "bin/redos-string-builder"
     ],
     "bin": {
-        "redos-string-builder" : "bin/redos-string-builder"
+        "redos-string-builder": "bin/redos-string-builder"
     }
 }

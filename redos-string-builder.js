@@ -22,5 +22,32 @@
 }(this, function() {
     var RedosStringBuilder;
     
+    RedosStringBuilder = function(target) { //create a builder for the target function
+        this.target = target;
+    };
+
+    //--constants
+    RedosStringBuilder.SIZE = 50000; //target string length to generate
+    RedosStringBuilder.UPPER = 'QWERTYUIOPASDFGHJKLZXCVBNM'; //uppercase alphas
+    RedosStringBuilder.LOWER = 'qwertyuiopasdfghjklzxcvbnm'; //lowercase alphas
+    RedosStringBuilder.MAX_ROLL = RedosStringBuilder.UPPER.length - 1;
+
+    //--rng
+    RedosStringBuilder.roll = function(max) { //return a number between 0 and MAX_ROLL
+        return Math.floor((Math.random() * (RedosStringBuilder.MAX_ROLL + 1)) + 1) - 1;
+    };
+
+    //--build functions
+    RedosStringBuilder.prototype.build = function() {
+        switch(this.target) {
+            case 'string.underscore':
+                return (function() {
+                    return (new Array(RedosStringBuilder.SIZE)).fill(0).map(function(v) {
+                        return Math.round(Math.random()) ? RedosStringBuilder.UPPER.split('')[RedosStringBuilder.roll()] :  RedosStringBuilder.LOWER.split('')[RedosStringBuilder.roll()];
+                    }).join("");
+                })();
+        }
+    };
+
     return RedosStringBuilder;
 }));

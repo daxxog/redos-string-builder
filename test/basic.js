@@ -10,12 +10,23 @@ var vows = require('vows'),
     RedosStringBuilder = require('../redos-string-builder.min.js');
 
 vows.describe('basic').addBatch({
-    'RedosStringBuilder': {
+    'typeof RedosStringBuilder': {
         topic: function() {
         	return typeof RedosStringBuilder;
         },
         'is a function': function(topic) {
             assert.equal(topic, 'function');
+        }
+    },
+    'new RedosStringBuilder(\'string.underscore\')': {
+        topic: function() {
+            return new RedosStringBuilder('string.underscore');
+        },
+        'has a .target string equal to \'string.underscore\'': function(topic) {
+            assert.equal(topic.target, 'string.underscore');
+        },
+        'can build a string with length of RedosStringBuilder.SIZE': function(topic) {
+            assert.equal(topic.build().length, RedosStringBuilder.SIZE);
         }
     }
 }).export(module);
