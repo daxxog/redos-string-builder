@@ -32,11 +32,6 @@
         "prepublish": "npm run build"
     },
     "files": [
-        "cli.min.js",
-        "redos-string-builder.min.js",
-        "bin/redos-string-builder"
-    ],
-    "bin": {
-        "redos-string-builder": "bin/redos-string-builder"
-    }
+        "redos-string-builder.min.js"
+    ]
 }

@@ -28,10 +28,6 @@ bitfactory.make({ //routes
         "redos-string-builder.min.js": ["header", function(cb) {
             fs.writeFileSync('redos-string-builder.min.js', header + UglifyJS.minify('redos-string-builder.js').code);
             cb();
-        }],
-        "cli.min.js": ["header", function(cb) {
-            fs.writeFileSync('cli.min.js', header + UglifyJS.minify('cli.js').code);
-            cb();
         }]
     }
 });
