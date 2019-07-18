@@ -26,6 +26,7 @@ vows.describe('basic').addBatch({
             assert.equal(topic.target, 'string.underscore');
         },
         'can build a string with length of RedosStringBuilder.SIZE': function(topic) {
+            console.log(topic.build());
             assert.equal(topic.build().length, RedosStringBuilder.SIZE);
         }
     }

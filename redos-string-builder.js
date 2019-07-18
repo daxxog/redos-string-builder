@@ -27,7 +27,8 @@
     };
 
     //--constants
-    RedosStringBuilder.SIZE = 50000; //target string length to generate
+    RedosStringBuilder.REPEAT = 50000; //target number of repeating chars in the string
+    RedosStringBuilder.SIZE = RedosStringBuilder.REPEAT * 100; //target string length to generate
     RedosStringBuilder.UPPER = 'QWERTYUIOPASDFGHJKLZXCVBNM'; //uppercase alphas
     RedosStringBuilder.LOWER = 'qwertyuiopasdfghjklzxcvbnm'; //lowercase alphas
     RedosStringBuilder.MAX_ROLL = RedosStringBuilder.UPPER.length - 1;
@@ -37,13 +38,23 @@
         return Math.floor((Math.random() * (RedosStringBuilder.MAX_ROLL + 1)) + 1) - 1;
     };
 
+    RedosStringBuilder.randomChar = function(which) {
+        return which ? RedosStringBuilder.UPPER.split('')[RedosStringBuilder.roll()] :  RedosStringBuilder.LOWER.split('')[RedosStringBuilder.roll()];
+    };
+
     //--build functions
     RedosStringBuilder.prototype.build = function() {
         switch(this.target) {
             case 'string.underscore':
                 return (function() {
-                    return (new Array(RedosStringBuilder.SIZE)).fill(0).map(function(v) {
-                        return Math.round(Math.random()) ? RedosStringBuilder.UPPER.split('')[RedosStringBuilder.roll()] :  RedosStringBuilder.LOWER.split('')[RedosStringBuilder.roll()];
+                    return (new Array(RedosStringBuilder.SIZE / RedosStringBuilder.REPEAT)).fill(0).map(function(v) {
+                        return (new Array(RedosStringBuilder.REPEAT)).fill(RedosStringBuilder.randomChar(1)).map(function(v, i) {
+                            if(i === 0) {
+                                return RedosStringBuilder.randomChar(Math.round(Math.random()));
+                            } else {
+                                return v;
+                            }
+                        }).join("");
                     }).join("");
                 })();
         }

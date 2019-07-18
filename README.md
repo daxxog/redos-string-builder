@@ -8,11 +8,11 @@ Install
 -------
 stable
 ```bash
-npm install -g redos-string-builder
+npm install redos-string-builder
 ```
 edge
 ```bash
-npm install -g https://github.com/daxxog/redos-string-builder/tarball/master
+npm install https://github.com/daxxog/redos-string-builder/tarball/master
 ```
 
 [travis-image]: https://img.shields.io/travis/daxxog/redos-string-builder.png?branch=master
