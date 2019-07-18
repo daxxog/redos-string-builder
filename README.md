@@ -1,2 +1,2 @@
 # redos-string-builder
-Builds specially crafted strings for redos attacks.
+Builds specially crafted strings for ReDoS attacks.
